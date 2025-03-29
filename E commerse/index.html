@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FashionHub - E-commerce</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <!-- Login Page -->
+    <div class="page" id="login">
+        <div class="login-container">
+            <div class="login-box">
+                <h2 class="welcome-text">Welcome to FashionHub</h2>
+                <form onsubmit="return validateLogin(event)">
+                    <div class="input-container">
+                        <input type="text" id="username" name="username" placeholder="Username" value="gargi12" required>
+                    </div>
+                    <div class="input-container">
+                        <input type="password" id="password" name="password" placeholder="Password" value="gargi12" required>
+                    </div>
+                    <button type="submit" class="btn-login">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Page -->
+    <div class="page" id="category" style="display: none;">
+        <h1>Choose Your Style</h1>
+        <div class="category-options">
+            <a href="#men" onclick="showPage('men')" class="btn-category">Shop Men</a>
+            <a href="#women" onclick="showPage('women')" class="btn-category">Shop Women</a>
+        </div>
+    </div>
+
+    <!-- Men's Collection Page -->
+    <div class="page" id="men" style="display: none;">
+        <h1>Men's Collection</h1>
+        <div class="product-container">
+            <!-- Men's Products -->
+            <div class="product">
+                <img src="images/men1.jpg" alt="Men's T-Shirt">
+                <h3>Classic T-Shirt</h3>
+                <p>$20.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/men2.jpg" alt="Men's Shirt">
+                <h3>Formal Shirt</h3>
+                <p>$35.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/men3.jpg" alt="Men's Jacket">
+                <h3>Winter Jacket</h3>
+                <p>$50.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/men4.jpg" alt="Men's Jeans">
+                <h3>Denim Jeans</h3>
+                <p>$45.00</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <a href="#category" onclick="showPage('category')" class="btn-back">Go Back</a>
+    </div>
+
+    <!-- Women's Collection Page -->
+    <div class="page" id="women" style="display: none;">
+        <h1>Women's Collection</h1>
+        <div class="product-container">
+            <!-- Women's Products -->
+            <div class="product">
+                <img src="images/women1.jpg" alt="Women's Dress">
+                <h3>Summer Dress</h3>
+                <p>$30.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/women2.jpg" alt="Women's Top">
+                <h3>Casual Top</h3>
+                <p>$18.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/women3.jpg" alt="Women's Jacket">
+                <h3>Winter Jacket</h3>
+                <p>$55.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/women4.jpg" alt="Women's Jeans">
+                <h3>Skinny Jeans</h3>
+                <p>$40.00</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <a href="#category" onclick="showPage('category')" class="btn-back">Go Back</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 FashionHub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Validate Login
+        function validateLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === 'gargi12' && password === 'gargi12') {
+                showPage('category');
+            } else {
+                alert('Invalid username or password. Try again!');
+            }
+        }
+
+        // Show Pages Dynamically
+        function showPage(page) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(pageDiv => {
+                pageDiv.style.display = 'none';
+            });
+            document.getElementById(page).style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
